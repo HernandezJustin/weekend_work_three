@@ -3,7 +3,21 @@
 # numbers, inclusive.
 
 def sum_of_range(array)
+  n = 1
+  count = 0
+  if array.first > array.last
+    array.rotate!
+  end
 
+  until array.length == array.last
+    new_ary = array.insert(array.first, array.last - n)
+    n += 1
+  end
+
+  new_ary.each do |number|
+    count += number
+  end
+  return count
 end
 
 # Driver code - don't touch anything below this line.

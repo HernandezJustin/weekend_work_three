@@ -3,7 +3,23 @@
 # the first string, and false otherwise.
 
 def mutation?(base_word, mutation)
+  not_included = 0
+  include_all = false
+  base = base_word.split(//).sort
+  mutated = mutation.split(//).sort
 
+  mutation.size.times do |char|
+    if base.include? mutated[char]
+    else
+      not_included += 1
+    end
+  end
+
+  if not_included > 0
+    include_all
+  else
+    !include_all
+  end
 end
 
 # Driver code - don't touch anything below this line.
